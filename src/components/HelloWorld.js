@@ -1,16 +1,39 @@
 import React from "react"
-
+import PropTypes from 'prop-types';
 import './HelloWorld.css'
 
-const hello_world1 = () => {
+const HelloWorld = ({ resim, butonadı, petiketi, aktif, sayi, children }) => {
     return (
         <div className='helloWorldWrapper'>
-            <img alt ="" className="helloWorldImage" 
-            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1474&q=80" />
-            <button className='HelloWorldButton'>Button</button>
-            <p className='helloWorldP'>Hello World Componentinden Merhaba</p>
+            <img alt="" className="helloWorldImage"
+                src={resim} />
+            <button className='helloWorldButton'>{butonadı}</button>
+            <p className='helloWorldP'>{petiketi}</p>
+            <h1>Sayı : {sayi}</h1>
+            <h2>Aktif Mi ? {aktif == true ? "Aktif" : "Pasif"}</h2>
+            <div className="helloWorldRedArea">
+                {children}
+            </div>
+
+
         </div>
     )
 }
+HelloWorld.propTypes = {
+    resim: PropTypes.string,
+    butonadı: PropTypes.string,
+    aktif: PropTypes.bool,
+    petiketi: PropTypes.string,
+    children: PropTypes.node,
+    sayi: PropTypes.number
 
-export default hello_world1
+}
+
+HelloWorld.defaultProps = {
+    butonadı:"Varsayılan Buton Adı",
+    petiketi:"Varsayılan P Etiketi Metni",
+    sayi:1000,
+    aktif:false
+}
+
+export default HelloWorld

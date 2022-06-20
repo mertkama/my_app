@@ -26,3 +26,8 @@
     font-size: 10px;
     color: grey;
 }
+.helloWorldRedArea{
+    width: 100%;
+    background-color: red;
+    height: 400px;
+}
